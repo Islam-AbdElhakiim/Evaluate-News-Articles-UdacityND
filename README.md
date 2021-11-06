@@ -1,73 +1,14 @@
 # Evaluate A News Articles
 
-This library is the **first step** of a journey that every markup file in a repository goes on before it is rendered on GitHub.com:
+## System Design in a glance:
 
-1. `github-markup` selects an _underlying library_ to convert the raw markup to HTML. See the list of [supported markup formats](#markups) below.
-1. The HTML is sanitized, aggressively removing things that could harm you and your kin—such as `script` tags, inline-styles, and `class` or `id` attributes.
-1. Syntax highlighting is performed on code blocks. See [github/linguist](https://github.com/github/linguist#syntax-highlighting) for more information about syntax highlighting.
-1. The HTML is passed through other filters that add special sauce, such as emoji, task lists, named anchors, CDN caching for images, and autolinking.
-1. The resulting HTML is rendered on GitHub.com.
+a simple [nodejs - express - webpack] based application to check the tone and velocity of words - like grammarly extension - of any external articles resource using URL.
 
-Please note that **only the first step** is covered by this gem — the rest happens on GitHub.com. In particular, `markup` itself does no sanitization of the resulting HTML, as it expects that to be covered by whatever pipeline is consuming the HTML.
+## Project Overview:
 
-Please see our [contributing guidelines](CONTRIBUTING.md) before reporting an issue.
+this project is a part of Udacity Advanced-front-end-Developer nanodegree.
+[https://classroom.udacity.com/nanodegrees/nd001-mena-nfp3/parts/142d6f89-be43-49f0-a1b2-bab00def6d62/modules/3f996fb2-0f43-4602-9693-ffea1b94bec2/lessons/fb39ecd4-a56f-4ee5-80fd-6d9e280b27a9/concepts/e70ffec8-507e-4a7b-bde3-d871d13e82bc]
 
-## Markups
+## Author:
 
-The following markups are supported. The dependencies listed are required if
-you wish to run the library. You can also run `script/bootstrap` to fetch them all.
-
--   [.markdown, .mdown, .mkdn, .md](http://daringfireball.net/projects/markdown/) -- `gem install commonmarker` (https://github.com/gjtorikian/commonmarker)
--   [.textile](https://www.promptworks.com/textile) -- `gem install RedCloth` (https://github.com/jgarber/redcloth)
--   [.rdoc](https://ruby.github.io/rdoc/) -- `gem install rdoc -v 3.6.1`
--   [.org](http://orgmode.org/) -- `gem install org-ruby` (https://github.com/wallyqs/org-ruby)
--   [.creole](http://wikicreole.org/) -- `gem install creole` (https://github.com/larsch/creole)
--   [.mediawiki, .wiki](http://www.mediawiki.org/wiki/Help:Formatting) -- `gem install wikicloth` (https://github.com/nricciar/wikicloth)
--   [.rst](http://docutils.sourceforge.net/rst.html) -- `pip install docutils`
--   [.asciidoc, .adoc, .asc](http://asciidoc.org/) -- `gem install asciidoctor` (http://asciidoctor.org)
--   [.pod](http://search.cpan.org/dist/perl/pod/perlpod.pod) -- `Pod::Simple::XHTML`
-    comes with Perl >= 5.10. Lower versions should install Pod::Simple from CPAN.
-
-## Installation
-
-```
-gem install github-markup
-```
-
-or
-
-```
-bundle install
-```
-
-from this directory.
-
-## Usage
-
-Basic form:
-
-```ruby
-require 'github/markup'
-
-GitHub::Markup.render('README.markdown', "* One\n* Two")
-```
-
-More realistic form:
-
-```ruby
-require 'github/markup'
-
-GitHub::Markup.render(file, File.read(file))
-```
-
-And a convenience form:
-
-```ruby
-require 'github/markup'
-
-GitHub::Markup.render_s(GitHub::Markups::MARKUP_MARKDOWN, "* One\n* Two")
-```
-
-## Contributing
-
-See [Contributing](CONTRIBUTING.md).
+IslamAbdelhakiim
