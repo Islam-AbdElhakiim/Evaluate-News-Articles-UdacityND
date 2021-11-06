@@ -1,5 +1,4 @@
-const mockAPIResponse = require("./mockAPI.js");
-
+// I didn't want to make a tree shaking, just for the future improvements
 const path = require("path");
 const express = require("express");
 const axios = require("axios");
@@ -15,20 +14,23 @@ dotenv.config();
 
 //init port
 const port = 8089;
-//middleware
-// app.use(cors());
-// app.use(morgan("dev"));
+//middlewares
+/* // app.use(cors());
+// app.use(morgan("dev")); */
+
+//instead of using Express Parser, I choosed bodyParser just as a practice to another solution
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 app.use(express.static("dist"));
 
+//Define the request receiver URL
 app.post("/get-nlp", async (req, res) => {
 	try {
 		const key = process.env.key;
 		const link = req.body.link;
-		console.log(req);
-		console.log(link);
+		// console.log(req);
+		// console.log(link);
 		const endpoint = `https://api.meaningcloud.com/sentiment-2.1&key=${key}&txt=${link}&lang=en`;
 		const response = await axios(endpoint);
 		res.json({
@@ -36,16 +38,20 @@ app.post("/get-nlp", async (req, res) => {
 			data: response.data,
 			message: "data retrieved successfuly",
 		});
-		res.send("done");
+		res.send("request-Completed");
 	} catch (error) {
 		console.log(error.message);
-		res.send("sorry, there was a mistake in your API call");
+		res.send(
+			"sorry, there was a mistake in your API call - Check for Connection"
+		);
 	}
 });
 
+//init the root url
 app.get("/", (req, res) => {
 	res.sendFile(path.resolve("./dist/index.html"));
 });
+// init the server
 app.listen(port, () => console.log(`server is PLaying on port ${port}`));
 
 module.exports = {

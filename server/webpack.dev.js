@@ -1,6 +1,4 @@
 const HtmlWebPackPlugin = require("html-webpack-plugin");
-const WorkPluginBox = require("workbox-webpack-plugin");
-
 module.exports = {
 	entry: "../client/index.js",
 	output: {
@@ -21,14 +19,6 @@ module.exports = {
 				loader: "babel-loader",
 			},
 			{
-				//babel loader.
-				test: "/json$/",
-
-				exclude: /node_modules/,
-
-				loader: "babel-loader",
-			},
-			{
 				//style loader.
 				test: /\.scss$/,
 
@@ -41,6 +31,5 @@ module.exports = {
 			template: "../client/view/index.html",
 			filename: "./index.html",
 		}),
-		new WorkPluginBox.GenerateSW(),
 	],
 };

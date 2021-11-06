@@ -1,15 +1,15 @@
 {
-	"name": "evaluate-news-nlp",
-	"version": "1.0.0",
+	"name": "evaluate-news-articles",
+	"version": "1.2.9",
 	"main": "index.js",
 	"scripts": {
-		"testc": "jest --verbose --rootDir=../client",
+		"test": "jest --verbose --rootDir=../client",
 		"start": "nodemon index.js --open",
 		"build-dev": "webpack-dev-server  --config webpack.dev.js --open",
 		"build-prod": "webpack --config webpack.prod.js"
 	},
 	"keywords": [],
-	"author": "",
+	"author": "IslamAbdelhakiim",
 	"license": "ISC",
 	"description": "",
 	"dependencies": {

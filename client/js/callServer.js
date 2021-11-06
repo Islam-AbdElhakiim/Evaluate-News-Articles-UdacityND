@@ -1,3 +1,4 @@
+//Start the request to our server with the provided link
 export const callServer = async (link) => {
 	try {
 		const response = await fetch("http://localhost:8089/get-nlp", {
