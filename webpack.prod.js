@@ -5,7 +5,7 @@ const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
 
 module.exports = {
-	entry: "../client/index.js",
+	entry: "./src/client/index.js",
 	output: {
 		libraryTarget: "var",
 		library: "Client",
@@ -31,7 +31,7 @@ module.exports = {
 	},
 	plugins: [
 		new HtmlWebPackPlugin({
-			template: "../client/view/index.html",
+			template: "./src/client/view/index.html",
 			filename: "./index.html",
 		}),
 		new MiniCssExtPlugin({filename: "[name].css"}),

@@ -3,8 +3,8 @@
 	"version": "1.2.9",
 	"main": "index.js",
 	"scripts": {
-		"test": "jest --verbose --rootDir=../client",
-		"start": "nodemon index.js --open",
+		"test": "jest --verbose --rootDir=./src/client",
+		"start": "nodemon src/server/index.js --open",
 		"build-dev": "webpack-dev-server  --config webpack.dev.js --open",
 		"build-prod": "webpack --config webpack.prod.js"
 	},

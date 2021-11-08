@@ -13,7 +13,7 @@ const app = express();
 dotenv.config();
 
 //init port
-const port = 8089;
+const port = 8081;
 //middlewares
 /* // app.use(cors());
 // app.use(morgan("dev")); */
@@ -49,7 +49,7 @@ app.post("/get-nlp", async (req, res) => {
 
 //init the root url
 app.get("/", (req, res) => {
-	res.sendFile(path.resolve("./dist/index.html"));
+	res.sendFile(path.resolve("../../dist/index.html"));
 });
 // init the server
 app.listen(port, () => console.log(`server is PLaying on port ${port}`));
