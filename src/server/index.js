@@ -15,7 +15,7 @@ dotenv.config();
 //init port
 const port = 8081;
 //middlewares
-/* // app.use(cors());
+app.use(cors());
 // app.use(morgan("dev")); */
 
 //instead of using Express Parser, I choosed bodyParser just as a practice to another solution
@@ -28,9 +28,11 @@ app.use(express.static("dist"));
 app.post("/get-nlp", async (req, res) => {
 	try {
 		const key = process.env.key;
+		// console.log(key);
 		const link = req.body.link;
-		// console.log(req);
+		// console.log(req.body.link);
 		// console.log(link);
+		// https://api.meaningcloud.com/sentiment-2.1&key=6caf9f0a9465c87c582daa5ac0ff7e8c&txt=https://www.build-electronic-circuits.com/how-to-learn-electronics//&lang=en
 		const endpoint = `https://api.meaningcloud.com/sentiment-2.1&key=${key}&txt=${link}&lang=en`;
 		const response = await axios(endpoint);
 		res.json({
@@ -40,7 +42,7 @@ app.post("/get-nlp", async (req, res) => {
 		});
 		res.send("request-Completed");
 	} catch (error) {
-		console.log(error.message);
+		console.log(error);
 		res.send(
 			"sorry, there was a mistake in your API call - Check for Connection"
 		);
